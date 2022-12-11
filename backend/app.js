@@ -33,7 +33,7 @@ mongoose.connect(process.env.DB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
-    .then(() => console.log('Connected to DB!'))
+    .then(() => console.log('Conexion exitosa a la base de datos'))
     .catch(err => console.log(err));
 
 app.use('/api/post', require('./routes/libro.routes'));

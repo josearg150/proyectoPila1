@@ -68,7 +68,6 @@ export default {
                         text: 'Bienvenido ',
                         type: 'Success',
                     });
-                    // bus.$emit('refreshUser');
                     this.$router.push({ name: 'home' });
                     this.$router.go(0);
                 })
