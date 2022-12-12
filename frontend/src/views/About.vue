@@ -7,13 +7,13 @@
         Creado por: 
     </v-card-text>
     <v-card-text>
-        Jose angel rocha garcia
+        Jose Angel Rocha Garcia
     </v-card-text>
     <v-card-text>
-       Erick ramirez vazquez
+       Erik Manuel Ramirez Vazquez
     </v-card-text>
     <v-card-text>
-        Juan miguel gomez montes
+        Juan Miguel García Montes
     </v-card-text>
 </v-container>
   
