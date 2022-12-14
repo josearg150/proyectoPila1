@@ -29,7 +29,7 @@
               <v-list-item-title>Inicio</v-list-item-title>
             </v-list-item-content>
             </v-list-item>
-            <v-list-item v-if="current_user" :to="{ name: 'add-post' }" link>
+            <v-list-item v-if="current_user" :to="{ name: 'add-libro' }" link>
             <v-list-item-icon>
               <v-icon>mdi-note-plus</v-icon>
             </v-list-item-icon>

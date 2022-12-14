@@ -1,11 +1,11 @@
-const Post = require('../models/Libro');
+const Libro = require('../models/Libro');
 const fs = require('fs');
 
 module.exports = class API {
     static async  obtenerLibros(req, res) {
         try {
-            const posts = await Post.find();
-            res.status(200).json(posts);
+            const libros = await Libro.find();
+            res.status(200).json(libros);
         } catch (err) {
             res.send(404).json({ message: err.message });
         }
@@ -14,19 +14,19 @@ module.exports = class API {
     static async  getLibroID(req, res) {
         const id = req.params.id;
         try {
-            const post = await Post.findById(id);
-            res.status(200).json(post);
+            const libro = await Libro.findById(id);
+            res.status(200).json(libro);
         } catch (err) {
             res.status(404).json({ message: err.message });
         }
     }
 
     static async  createLibro(req, res) {
-        const post = req.body;
+        const libro = req.body;
         const imagename = req.file.filename;
-        post.image = imagename;
+        libro.image = imagename;
         try {
-            await Post.create(post);
+            await Libro.create(libro);
             res.status(201).json({ message: 'Libro creado' });
         } catch (err) {
             res.status(400).json({ message: err.message });
@@ -47,11 +47,11 @@ module.exports = class API {
             new_image = req.body.old_image;
         }
         
-        const newPost = req.body;
-        newPost.image = new_image;
+        const newLibro = req.body;
+        newLibro.image = new_image;
 
         try {
-            await Post.findByIdAndUpdate(id, newPost);
+            await Libro.findByIdAndUpdate(id, newLibro);
             res.status(200).json({ message: 'Libro actualizado' });
         } catch (err) {
             res.status(404).json({ message: err.message });
@@ -62,7 +62,7 @@ module.exports = class API {
         const id = req.params.id;
 
         try {
-            const result = await Post.findByIdAndDelete(id);
+            const result = await Libro.findByIdAndDelete(id);
             if (result.image != '') {
                 try {
                     fs.unlinkSync('./imagenes/' + result.image);

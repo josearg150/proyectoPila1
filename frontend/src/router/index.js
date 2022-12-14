@@ -18,17 +18,17 @@ const routes = [
   },
   {
     path: '/agregar-libro',
-    name: 'add-post',
+    name: 'add-libro',
     component: AddLibroView,
   },
   {
     path: '/libro/:id',
-    name: 'post',
+    name: 'libro',
     component: LibroView,
   },
   {
     path: '/editar-libro/:id',
-    name: 'edit-post',
+    name: 'edit-libro',
     component: EditLibroView,
   },
   {

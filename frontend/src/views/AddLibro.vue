@@ -6,10 +6,10 @@
                     <v-card-title>Agregar libro</v-card-title>
                     <v-divider></v-divider>
                     <v-form ref="form" @submit.prevent="submitForm" class="pa-5" enctype="multipart/form-data">
-                        <v-text-field label="Título" v-model="post.title" prepend-icon="mdi-note" :rules="rules"></v-text-field>
-                        <v-text-field label="Autor" v-model="post.autor" prepend-icon="mdi-account" :rules="rules"></v-text-field>
-                        <v-text-field label="Género" v-model="post.category" prepend-icon="mdi-view-list" :rules="rules"></v-text-field>
-                        <v-textarea label="Reseña" v-model="post.content" prepend-icon="mdi-pencil" :rules="rules"></v-textarea>
+                        <v-text-field label="Título" v-model="libroNuevo.title" prepend-icon="mdi-note" :rules="rules"></v-text-field>
+                        <v-text-field label="Autor" v-model="libroNuevo.autor" prepend-icon="mdi-account" :rules="rules"></v-text-field>
+                        <v-text-field label="Género" v-model="libroNuevo.category" prepend-icon="mdi-view-list" :rules="rules"></v-text-field>
+                        <v-textarea label="Reseña" v-model="libroNuevo.content" prepend-icon="mdi-pencil" :rules="rules"></v-textarea>
                         <v-file-input @change="selectFile" :rules="rules" show-size counter multiple label="Portada"></v-file-input>
                         <v-btn type="submit" class="mt-3" color="primary">Guardar</v-btn>
                     </v-form>
@@ -26,7 +26,7 @@ export default {
     data() {
         return {
             rules: [(value) => !!value || "Este campo no puede estar vacío"],
-            post: {
+            libroNuevo: {
                 title: "",
                 autor: "",
                 category: "",
@@ -43,11 +43,11 @@ export default {
         async submitForm() {
             const formData = new FormData();
             formData.append('image', this.image);
-            formData.append('title', this.post.title);
-            formData.append('autor', this.post.autor);
-            formData.append('category', this.post.category);
+            formData.append('title', this.libroNuevo.title);
+            formData.append('autor', this.libroNuevo.autor);
+            formData.append('category', this.libroNuevo.category);
             formData.append('usr', localStorage.getItem('usr'));
-            formData.append('content', this.post.content);
+            formData.append('content', this.libroNuevo.content);
             if (this.$refs.form.validate()) {
                 const response = await API.addPost(formData);
                 this.$swal({

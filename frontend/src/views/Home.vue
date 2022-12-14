@@ -1,17 +1,17 @@
 <template>
   <v-container>
     <v-row no-gutters>
-      <v-col sm="4" class="pa-3" v-for="post in posts" :key="post._id">
-        <v-card class="pa-1" :to="{ name: 'post', params: { id: post._id } }">
-          <v-img height="250" :src="`/${post.image}`"></v-img>
+      <v-col sm="4" class="pa-3" v-for="libro in libros" :key="libro._id">
+        <v-card class="pa-1" :to="{ name: 'libro', params: { id: libro._id } }">
+          <v-img height="250" :src="`/${libro.image}`"></v-img>
           <v-card-title class="headline">
-            <h5>{{ post.category }}</h5>
+            <h5>{{ libro.category }}</h5>
           </v-card-title>
           <v-card-title class="headline">
-            {{ post.title }}
+            {{ libro.title }}
           </v-card-title>
           <v-card-text class="py-0">
-            <p>{{ post.content.substring(0, 40) + "..." }}</p>
+            <p>{{ libro.content.substring(0, 40) + "..." }}</p>
           </v-card-text>
         </v-card>
       </v-col>
@@ -26,11 +26,11 @@ export default {
   name: 'Home',
   data() {
     return {
-      posts: [],
+    libros: [],
     };
   },
   async created() {
-    this.posts = await API. obtenerLibros();
+    this.libros = await API. obtenerLibros();
   }
 };
 </script>

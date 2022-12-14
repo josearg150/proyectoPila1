@@ -9,7 +9,7 @@ const postSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    cagtegory: {
+    category: {
         type: String,
         required: true
     },
@@ -29,4 +29,4 @@ const postSchema = mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Post', postSchema);
+module.exports = mongoose.model('Libro', postSchema);
