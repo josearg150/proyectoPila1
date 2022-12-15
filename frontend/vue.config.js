@@ -4,7 +4,7 @@ module.exports = defineConfig({
     'vuetify'
   ],
   devServer: {
-     proxy: "http://localhost:5000",
-      // proxy: "http://20.228.159.119:5000",
+    //  proxy: "http://localhost:5000",
+       proxy: "http://20.228.159.119:5000",
   }
 })
